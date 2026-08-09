@@ -1,0 +1,439 @@
+/* ==========================================================================
+   Islamic Prayer Times Application Design System & Styles
+   ========================================================================== */
+
+:root {
+  --font-primary: 'Cairo', system-ui, -apple-system, sans-serif;
+  --font-arabic-art: 'Amiri', serif;
+  
+  --bg-dark: #0a1913;
+  --bg-gradient: radial-gradient(circle at top center, #15382b 0%, #08120e 100%);
+  --surface-glass: rgba(18, 43, 32, 0.65);
+  --surface-card: rgba(22, 54, 40, 0.75);
+  --surface-card-hover: rgba(30, 71, 53, 0.9);
+  
+  --gold-primary: #e6a740;
+  --gold-glow: #ffc86b;
+  --gold-gradient: linear-gradient(135deg, #f5bc51 0%, #d48e24 100%);
+  
+  --text-main: #f0f7f4;
+  --text-muted: #a3c2b5;
+  --text-gold: #f4c062;
+  
+  --border-glass: rgba(230, 167, 64, 0.2);
+  --border-active: rgba(255, 200, 107, 0.8);
+  
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-active: 0 8px 25px rgba(230, 167, 64, 0.35);
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --transition-normal: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+}
+
+body {
+  background: var(--bg-dark);
+  background-image: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 15px;
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ==========================================================================
+   Header Styling
+   ========================================================================== */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 2px 8px rgba(230, 167, 64, 0.4));
+  transition: var(--transition-normal);
+}
+
+.logo:hover img {
+  transform: rotate(-10deg) scale(1.08);
+}
+
+.logo h1 {
+  font-family: var(--font-arabic-art);
+  font-size: 28px;
+  font-weight: 700;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+}
+
+.date-container {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.date-hijri {
+  font-family: var(--font-arabic-art);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-gold);
+}
+
+.date-gregorian {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Controls Section
+   ========================================================================== */
+
+.controls-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 25px;
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.city-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.city-selector label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.city-selector select {
+  background: rgba(10, 25, 19, 0.8);
+  color: var(--text-gold);
+  border: 1px solid var(--border-glass);
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  min-width: 220px;
+}
+
+.city-selector select:hover,
+.city-selector select:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 10px rgba(230, 167, 64, 0.3);
+}
+
+.city-selector select option {
+  background: #0f261c;
+  color: #fff;
+  padding: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-secondary {
+  background: var(--gold-gradient);
+  color: #0b1a13;
+  box-shadow: 0 4px 12px rgba(230, 167, 64, 0.25);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(230, 167, 64, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-gold);
+  border: 1px solid var(--border-glass);
+}
+
+.btn-outline:hover {
+  background: rgba(230, 167, 64, 0.15);
+  border-color: var(--gold-primary);
+}
+
+/* ==========================================================================
+   Countdown Banner
+   ========================================================================== */
+
+.countdown-banner {
+  background: linear-gradient(135deg, rgba(230, 167, 64, 0.15) 0%, rgba(18, 43, 32, 0.7) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+}
+
+.countdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.countdown-title {
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+.countdown-title strong {
+  color: var(--text-gold);
+  font-size: 22px;
+  font-family: var(--font-arabic-art);
+}
+
+.countdown-timer {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-family: monospace, var(--font-primary);
+  color: var(--gold-glow);
+  text-shadow: 0 0 15px rgba(255, 200, 107, 0.5);
+  direction: ltr;
+}
+
+/* ==========================================================================
+   Prayer Cards Grid
+   ========================================================================== */
+
+.times-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+  width: 100%;
+}
+
+.time-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 22px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.time-card:hover {
+  background: var(--surface-card-hover);
+  transform: translateY(-5px);
+  border-color: rgba(230, 167, 64, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Active Highlight for Next Prayer */
+.time-card.active-next {
+  background: linear-gradient(180deg, rgba(35, 80, 58, 0.95) 0%, rgba(20, 48, 35, 0.95) 100%);
+  border: 2px solid var(--border-active);
+  box-shadow: var(--shadow-active);
+  transform: scale(1.03);
+}
+
+.time-card.active-next::before {
+  content: 'القادمة';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--gold-gradient);
+  color: #0c1a13;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.card-icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.card-icon img {
+  width: 100%;
+  height: auto;
+  max-height: 55px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+.time-card h2 {
+  font-family: var(--font-arabic-art);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-gold);
+  margin-bottom: 8px;
+}
+
+.time-card hr {
+  width: 60%;
+  border: none;
+  height: 1px;
+  background: var(--border-glass);
+  margin: 6px 0 12px 0;
+}
+
+.time-card.active-next hr {
+  background: var(--gold-primary);
+}
+
+.time-val {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-main);
+  direction: ltr;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(230, 167, 64, 0.1);
+  margin-top: 15px;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .date-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .controls-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .city-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .city-selector select {
+    width: 100%;
+  }
+
+  .actions {
+    justify-content: space-between;
+  }
+
+  .times-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .countdown-timer {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .times-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .time-card {
+    padding: 16px 10px;
+  }
+
+  .time-card h2 {
+    font-size: 20px;
+  }
+
+  .time-val {
+    font-size: 20px;
+  }
+}
+

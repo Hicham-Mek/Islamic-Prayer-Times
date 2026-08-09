@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مواقيت الصلاة | Prayer Times</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/calendar.png" type="image/png" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="images/calendar.png" alt="مواقيت الصلاة" />
+        <h1>مواقيت الصلاة</h1>
+      </div>
+      <div class="date-container">
+        <div id="hijri-date" class="date-hijri">جاري التحميل...</div>
+        <div id="gregorian-date" class="date-gregorian"></div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Controls section: city selector & location/format tools -->
+      <section class="controls-section">
+        <div class="city-selector">
+          <label for="cities">اختر المدينة:</label>
+          <select name="cities" id="cities">
+            <option value="tlemcen">تلمسان (Tlemcen)</option>
+            <option value="maghnia">مغنية (Maghnia)</option>
+            <option value="nedroma">ندرومة (Nedroma)</option>
+            <option value="ghazaouet">الغزوات (Ghazaouet)</option>
+            <option value="remchi">الرمشي (Remchi)</option>
+            <option value="hennaya">الحناية (Hennaya)</option>
+            <option value="sebdou">سبدو (Sebdou)</option>
+            <option value="tounane">تونان (Tounane)</option>
+            <option value="marsa-ben-mhidi">مرسى بن مهيدي (Marsa Ben M'Hidi)</option>
+            <option value="ouled-mimoun">أولاد ميمون (Ouled Mimoun)</option>
+            <option value="bensekrane">بن سكران (Bensekrane)</option>
+            <option value="ain-tellout">عين تالوت (Aïn Tellout)</option>
+            <option value="mansourah">المنصورة (Mansourah)</option>
+            <option value="algiers">الجزائر العاصمة (Algiers)</option>
+            <option value="oran">وهران (Oran)</option>
+
+          </select>
+        </div>
+
+        <div class="actions">
+          <button id="geo-btn" class="btn btn-secondary" title="تحديد موقعي">
+            📍 موقعي الحالي
+          </button>
+          <button id="format-toggle" class="btn btn-outline" title="تغيير نظام الوقت">
+            ⏱️ نظام 12 ساعة
+          </button>
+        </div>
+      </section>
+
+      <!-- Next prayer countdown banner -->
+      <section class="countdown-banner">
+        <div class="countdown-content">
+          <span class="countdown-title">الصلاة القادمة: <strong id="next-prayer-name">--</strong></span>
+          <div class="countdown-timer" id="countdown-timer">00:00:00</div>
+        </div>
+      </section>
+
+      <!-- Prayer Times Cards Grid -->
+      <section class="times-grid" id="times-grid">
+        <div class="time-card" data-prayer="Fajr">
+          <div class="card-icon">
+            <img src="images/fajr.png" alt="الفجر" />
+          </div>
+          <h2>الفجر</h2>
+          <hr />
+          <h3 class="time-val">--:--</h3>
+        </div>
+
+        <div class="time-card" data-prayer="Sunrise">
+          <div class="card-icon">
+            <img src="images/sunrise.png" alt="الشروق" />
+          </div>
+          <h2>الشروق</h2>
+          <hr />
+          <h3 class="time-val">--:--</h3>
+        </div>
+
+        <div class="time-card" data-prayer="Dhuhr">
+          <div class="card-icon">
+            <img src="images/dhuhr.png" alt="الظهر" />
+          </div>
+          <h2>الظهر</h2>
+          <hr />
+          <h3 class="time-val">--:--</h3>
+        </div>
+
+        <div class="time-card" data-prayer="Asr">
+          <div class="card-icon">
+            <img src="images/asr.png" alt="العصر" />
+          </div>
+          <h2>العصر</h2>
+          <hr />
+          <h3 class="time-val">--:--</h3>
+        </div>
+
+        <div class="time-card" data-prayer="Maghrib">
+          <div class="card-icon">
+            <img src="images/maghrib.png" alt="المغرب" />
+          </div>
+          <h2>المغرب</h2>
+          <hr />
+          <h3 class="time-val">--:--</h3>
+        </div>
+
+        <div class="time-card" data-prayer="Isha">
+          <div class="card-icon">
+            <img src="images/isha.png" alt="العشاء" />
+          </div>
+          <h2>العشاء</h2>
+          <hr />
+          <h3 class="time-val">--:--</h3>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>مواقيت الصلاة حسب الهيئة العامة للأوقاف والشؤون الإسلامية | aladhan.com API</p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
