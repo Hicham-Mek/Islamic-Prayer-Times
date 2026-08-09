@@ -59,7 +59,8 @@ All you need is a modern web browser (Google Chrome, Mozilla Firefox, Microsoft 
 
 1. **Clone or Download the Repository:**
    ```bash
-   git clone https://github.com/Hicham-Mek/API-------------.git
+   git clone https://github.com/Hicham-Mek/
+Islamic-Prayer-Times.git
    cd "API مواقيت لصلاة"
    ```
 
